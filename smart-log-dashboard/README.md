@@ -1,70 +1,139 @@
-# Getting Started with Create React App
+# Smart Log Monitoring System
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Overview
 
-## Available Scripts
+Smart Log Monitoring System is a full-stack web application developed to simplify application log management. It allows users to generate, store, search, and monitor application logs through an interactive dashboard. The system helps developers quickly identify errors, warnings, and important events in real time.
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+- Generate application logs
+- Store logs in MySQL database
+- Search logs using keywords
+- Filter logs by log level
+- Interactive dashboard with charts
+- Real-time log statistics
+- RESTful APIs using Spring Boot
+- Responsive React user interface
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Tech Stack
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Frontend
+- React.js
+- JavaScript
+- HTML
+- CSS
+- Axios
+- Recharts
 
-### `npm test`
+### Backend
+- Spring Boot
+- Spring Data JPA
+- REST API
+- Maven
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Database
+- MySQL
 
-### `npm run build`
+### Tools
+- Docker
+- Git
+- GitHub
+- VS Code
+- IntelliJ IDEA
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Project Structure
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```
+smart-log-monitoring
+│
+├── smart-log-dashboard
+├── log-producer-service
+├── log-processor-service
+├── docker-infra
+└── docker-compose.yml
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## System Architecture
 
-### `npm run eject`
+```
+React Dashboard
+        │
+        ▼
+Spring Boot REST APIs
+        │
+        ▼
+Log Producer Service
+        │
+        ▼
+Log Processor Service
+        │
+        ▼
+MySQL Database
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Installation
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Clone the repository
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```bash
+git clone https://github.com/Harshithvn/smart-log-monitoring-system.git
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Backend
 
-## Learn More
+```bash
+cd log-producer-service
+mvn spring-boot:run
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```bash
+cd ../log-processor-service
+mvn spring-boot:run
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Frontend
 
-### Code Splitting
+```bash
+cd smart-log-dashboard
+npm install
+npm start
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## API Endpoints
 
-### Analyzing the Bundle Size
+### Generate Log
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```
+POST /api/logs
+```
 
-### Making a Progressive Web App
+### Get All Logs
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+```
+GET /api/logs
+```
 
-### Advanced Configuration
+### Search Logs
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+```
+GET /api/logs/search?keyword=test
+```
 
-### Deployment
+## Future Enhancements
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+- Apache Kafka integration
+- Elasticsearch integration
+- AI-based anomaly detection
+- Email alerts
+- Authentication & Authorization
+- Cloud deployment
+- Log analytics and reporting
 
-### `npm run build` fails to minify
+## Author
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+**Harshith V N**
+
+B.E. Computer Science and Engineering  
+University Visvesvaraya College of Engineering (UVCE)
+
+GitHub: https://github.com/Harshithvn
