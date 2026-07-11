@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+
+  mysql:
+    image: mysql:8.0
+    container_name: mysql-db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: Harshith@2004
+      MYSQL_DATABASE: logmonitor
+    ports:
+      - "3307:3306"
+
+  log-producer-service:
+    build:
+      context: ./log-producer-service
+    container_name: log-producer-service
+    ports:
+      - "8081:8081"
+    depends_on:
+      - mysql
+
+  log-processor-service:
+    build:
+      context: ./log-processor-service
+    container_name: log-processor-service
+    ports:
+      - "8082:8082"
+    depends_on:
+      - mysql
+
+  frontend-dashboard:
+    build:
+      context: ./smart-log-dashboard
+    container_name: frontend-dashboard
+    ports:
+      - "3000:3000"
+    depends_on:
+      - log-producer-service
+      - log-processor-service
