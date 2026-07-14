@@ -49,7 +49,6 @@ smart-log-monitoring
 ├── smart-log-dashboard
 ├── log-producer-service
 ├── log-processor-service
-├── docker-infra
 └── docker-compose.yml
 ```
 
